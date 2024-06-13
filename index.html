@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>
+            Focus
+        </title>
+        <style>
+            .nav{
+                    display: block;
+                    padding-top: 5px;
+                    height: 25px;
+                    border-bottom: 0.5px solid #0000008c ;
+                    }
+                    .mobile_dropdown{
+                        display: none;
+                    }
+            .nav a{                            
+                    font-size: 20px;
+                    text-decoration: none;
+                    color: #0000008c;
+                }
+            .nav a:hover{
+                color: black;
+            }
+            .store:hover{
+                color: #ffa116;
+            }
+            .logo{
+                width: 30px;
+                height: 30px;
+                position: relative;
+                bottom: 10px;
+            }
+            .nav_first{
+                /* background-color: red; */
+                position: relative;
+                display: flex;
+                width: 455px;
+                gap: 30px;
+                left: 120px;
+                bottom: 40px;
+                margin-left: 50px;
+            }
+            .nav_last{
+                width: 166px;
+                position: relative;
+                left: 1000px;
+                bottom: 60px;
+                display: flex;
+                gap: 25px;
+            }
+            .premium{
+                display: block;
+                background-color: #ffa1161f;
+                text-align: center;
+                font-weight: 500;
+                border-radius: 20px;
+                width: 150px;
+                position: relative;
+                height: 25px;
+                left: 1200px;
+                bottom: 85px;
+                
+            }
+            .premium a:hover{
+                color: #ffa116;
+                opacity: 1.5;
+            }
+            .premium:hover{
+                cursor: pointer;
+            }
+            .store{
+                color:red;
+                font-weight: 1000px
+            }
+            .premium a{
+                color: #fa9804;
+            }
+            
+            .upper_image{
+                display: none;
+            }
+            .study{
+                display: none;
+            }
+            
+            .right{
+                display: none;
+            }
+            .mobile_dropdown{
+                    position: absolute;
+                    left: 325px;
+                    bottom: 2px;
+                    transition: left 0.3s ease-in-out;
+                }
+                .mobile_dropdown span{
+                    display: block;
+                    width: 15px;
+                    height: 2px;
+                    background-color: black;
+                    margin: 3px;
+                }
+            @media(min-width:720px){
+                .logo{
+                    left: 120px;
+                }
+            
+            .upper_image{
+                width: 940px;
+                display: flex;
+                gap: 1rem;
+                position: relative;
+                left: 140px;
+                bottom: 370px;
+            }
+            .upper_image img{
+                position: relative;
+                transition: box-shadow 0.3s ease;
+                border-radius: 20px;
+                width: 300px;
+                height: 150px;
+            }
+            .study{
+                display: block;
+                position: relative;
+                left: 140px;
+                bottom: 360px;
+                width: 950px;
+            }
+            .study p{
+                color: #6B7280;
+                font-size: 20px; /* Equivalent to text-[20px] */
+                font-weight: 500; /* Equivalent to font-medium, assuming default behavior */
+            }
+            .study p{
+                color: #6B7280;
+                font-size: 20px; /* Equivalent to text-[20px] */
+                font-weight: 500; /* Equivalent to font-medium, assuming default behavior */
+            }
+            .gridi img{
+                width: 72px;
+                height: 72px;
+            }
+            .gridi {
+                display: grid;
+                position: relative;
+                left: -15px;
+                right: 40px;
+                grid-template-columns: repeat(3,320px);
+                grid-template-rows: repeat(2,120px);
+            }
+
+            .big{
+                width: 300px;
+                margin: 10px;
+                border-radius: 20px;
+                border: 1px solid black;
+                height: 110px;
+            }
+            .big img{
+                display: flex;
+                position: relative;
+                left: 10px;
+                top: 10px;
+                border-radius: 10px;
+                height: 90px;
+                transition: box-shadow 0.3s ease;
+            }
+            .upper_image img:hover{
+                cursor: pointer;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            }
+            .heading{
+                position: relative;
+                width: 160px;
+                left: 100px;
+                bottom: 90px;
+            }
+            .upper_content{
+                width: 200px;
+                position: relative;
+                left: 100px;
+                bottom: 100px;
+            }
+            .images{
+                width: 85px;
+                height: 100px;
+            }
+            .arrow {
+                border: solid #0000008c;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                }
+                .down {
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                }
+            i#interview{
+                position: relative;
+                left: 599px;
+                bottom: 20px;
+            }
+            i#store{
+                background-color:#ffa116 ;
+                position: relative;
+                left: 660px;
+                bottom: 19px;
+            }
+            .date_and_time{
+                display: flex;
+                gap: 10px;
+            }
+            .right{
+                display: block;
+                border: 2px solid pink; 
+                width: 300px;
+                height: 400px;
+                border-radius: 30px;
+                position: relative;
+                left: 1100px;
+                top: 30px;
+            }
+            .date_and_time{
+                width: 200px;
+                position: relative;
+                left: 30px;
+                top: 10px;
+            }
+            .calendar{
+                position: relative;
+                top: 30px;
+                width: 210px;
+                left: 40px;
+                display: grid;
+                grid-template-columns: repeat(7,30px);
+                row-gap: 10px;
+            }
+            .right a{
+                text-decoration: none;
+                color: #0000008c;
+            }
+            .premium_content h3{
+                font-family: sans-serif;
+            }
+            .premium_content{
+                position: relative;
+                left: 20px;
+                width: 150px;
+                top: 10px;
+            }
+            .question{
+                position: relative;
+                left: 180px;
+                bottom: 30px;
+            }
+            .days_left{
+                position: relative;
+                width: 70px;
+                left: 210px;
+                bottom: 65px;
+            }
+            .weekly_problems{
+                display: flex;
+                gap: 20px;
+                position: relative;
+                left: 40px;
+                width: 200px;
+                bottom: 40px;
+            }
+            .parent{
+                position: relative;
+                top: 20px;
+                border-radius: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+                background-color:orange;
+            }
+            .big:hover{
+                cursor: pointer;
+                box-shadow: 0 0 15px red
+            }
+            }
+            /* >end of the desktop Code */
+            .log{
+                display: none;
+            }
+
+            @media(max-width: 712px){
+                body{
+                    margin: 0px;
+                    width: 350px;
+                    height: 667px;
+                }
+                .nav{
+                    display: block;
+                    position: relative;
+                    border-bottom: 1px solid black;
+                    width: 350px;
+                    bottom: 1px;
+                }
+                .nav_first{
+                    display: none;
+                    bottom: 0px;
+                }
+                .upper_image{
+                    position: relative;
+                    top:40px;
+                    padding-left: 10px;
+                    display: grid;
+                    grid-template-columns: repeat(3,2fr);
+                    width: 350px;
+                }
+                .upper_image img{
+                    width: 100px;
+                    border-radius: 10px;
+                }
+                .study{
+                    text-align: center;
+                    display: block;
+                    position: relative;
+                    top: 30px;
+                    padding-left: 20px;
+                }
+                .gridi{
+                    display: grid;
+                    position: relative;
+                    right: 10px;
+                    grid-template-columns: repeat(3, 123px);
+                    row-gap: 10px;
+                    grid-template-rows: repeat(2, 130px);
+                }
+                .big{
+                    width: 100px;
+                    border: 1px solid #000;
+                    transition: box-shadow 0.3s ease-in-out;
+                    border-radius: 30px;
+                }
+                .images{
+                    position: relative;
+                    left: 35px;
+                    top: 15px;
+                    max-width: 30px;
+                }
+                .upper_image img{
+                    transition: box-shadow .2s ease-in-out;
+                }
+                .upper_image img:hover{
+                    box-shadow: 0px 0px 20px red;
+                }
+                .big img{
+                    width: 30px;
+                }
+
+                .big:hover{
+                    box-shadow: 0px 0px 20px red;
+                }
+                .gridi h5{
+                    font-size: 10px;
+                }
+                .mobile_dropdown{
+                    display: block;
+                    left: 325px;
+                }
+                
+                .logo{
+                    top: 10px;
+                    padding-left: 4px;
+                    width: 15px;
+                    height: 15px;
+                    position: absolute;
+                }
+                
+            }
+            .tags{
+                display: flex;
+                width: 1000px;
+                gap: 20px;
+                position: relative;
+                bottom: 340px;
+                left: 140px;
+                overflow: hidden;
+                flex-wrap: wrap;
+            }
+            .topic{
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .topic p:nth-child(2){
+                background-color: gray;
+                position: relative;
+                color: white;
+                max-width: 38px;
+                height: 20px;
+                border-radius: 8px;
+            }
+            .topic#a{
+                display: flex; 
+                }
+
+            .topic#b{
+                display: none;
+            }
+        
+            #but{
+                border-radius: 10px;
+                position: relative;
+                left: 990px;
+                bottom: 380px;
+            }
+            #revert{
+                border-radius: 10px;
+                display: none;
+                position: relative;
+                left: 980px;
+                bottom: 370px;
+            }
+            .topic_tags{
+                width: 970px;
+                height: 100px;
+                position: relative;
+                bottom: 370px;
+                left: 115px;
+                padding-left: 10px;
+                display: flex;
+                gap: 20px;
+            }
+            .bucket_topics{
+                background-color: lightgray;
+                height: 50px;
+                width: 120px;
+                border-radius: 140px;
+            }
+            .bucket_topics:hover{
+                background-color: gray;
+            }
+            .bucket_topics h4{
+                text-align: center;
+                padding-right: 10px;
+                position: relative;
+                width: 88px;
+                left: 15px;
+                top: 10px;
+            }
+            .topic_tags a{
+                text-decoration: none;
+                color: black;
+            }
+            .upper {
+                position: relative;
+                left: 120px;
+                bottom: 380px;
+                display: flex;
+                gap: 20px;
+            }
+            button#list,button#difficulty,button#status,button#tags_tag{
+                border-radius: 8px;
+                cursor: pointer;
+                width: 100px;
+                max-height: 22px;
+            }
+            button#list:hover,button#difficulty:hover,button#status:hover,button#tags_tag:hover{
+                background-color: red;
+            }
+            .pick_one:hover{
+                cursor: pointer;
+                background-color: red;
+            }
+            .list,.difficulty,.status,.tags svg{
+                position: relative;
+                left: 10px;
+                top: 2px;
+            }
+            
+            input#input{
+                /* background-color: red; */
+                border-radius: 10px;
+                background-color: lightgray;
+                border: 0.9px solid lightgray;
+                opacity: 0.6;
+                position: relative;
+                left: 40px;
+                width: 232px;
+            }
+            .input_div{
+                background-color: lightgray;
+                width: 300px;
+                max-height: 22px;
+                border-radius: 10px;
+            }
+            .input_div svg{
+                position: relative;
+                left: 5px;  
+                top: 2px;
+            }
+            
+            .pick_one{
+                background-color: lightgray;
+                display: flex;
+                gap: 20px;
+                text-align: center;
+                width: 90px;
+                max-height: 22px;
+                border-radius: 20px;
+            }
+            span{
+                position: relative;
+                left: 10px;
+                color: green;
+            }
+            .main{
+                position: relative;
+                top: 30px;
+            }
+            #question_title{
+                cursor: pointer;
+            }
+            .question_columns{
+                position: relative;
+                left: 130px;
+                width: 930px;
+                bottom: 340px;
+                display: flex;
+                gap: 40px;
+            }
+           
+            #question_acceptance{
+                cursor: pointer;
+                position: relative;
+                left: 350px;
+            }
+            #question_solution{
+                width: 50px;
+                position: relative;
+                left: 300px;
+            }
+            #question_difficulty{
+                cursor: pointer;
+                position: relative;
+                left: 400px;
+            }
+            #question_frequency{
+                position: relative;
+                left: 430px;
+            }
+        </style>
+    </head>
+    <body>
+            <div class="nav">
+                <img class="logo" src="leet.png">
+                <i id="interview" class="arrow down"></i>
+                <i id="store" class="arrow down"></i>
+                <div class="mobile_dropdown">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav_first">
+                    <a href="#">Explore</a>
+                    <a href="#">Problems</a>
+                    <a href="#">Contest</a>
+                    <a href="#">Discuss</a>
+                    <a href="#">Interview</a>
+                    <a style='color:#ffa116;font-weight: 1000px' class="store" href="#">Store</a>            
+        </div>
+        <div class="nav_last">
+            <a href="#">Register</a>
+            <a href="#">Or</a>
+            <a href="#">SignIn</a>
+        </div>
+        <div class="premium">
+            <a href="#">Premium</a>
+        </div>
+        </div>
+        <div class="right">
+            <div class="date_and_time">
+                <div class="date">
+                    <span>Day 8</span>
+                </div>
+                <div class="time">
+                    <span>12:52:26 left</span>
+                </div>
+            </div>
+            <div class="calendar">
+                <span class="text-label-4 dark:text-dark-label-4 pointer-events-none flex h-[26px] w-8 items-center justify-center">S</span>
+                <span class="text-label-4 dark:text-dark-label-4 pointer-events-none flex h-[26px] w-8 items-center justify-center">M</span>
+                <span class="text-label-4 dark:text-dark-label-4 pointer-events-none flex h-[26px] w-8 items-center justify-center">T</span>
+                <span class="text-label-4 dark:text-dark-label-4 pointer-events-none flex h-[26px] w-8 items-center justify-center">W</span>
+                <span class="text-label-4 dark:text-dark-label-4 pointer-events-none flex h-[26px] w-8 items-center justify-center">T</span>
+                <span class="text-label-4 dark:text-dark-label-4 pointer-events-none flex h-[26px] w-8 items-center justify-center">F</span>
+                <span class="text-label-4 dark:text-dark-label-4 pointer-events-none flex h-[26px] w-8 items-center justify-center">S</span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">1</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">2</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">3</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">4</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">5</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">6</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">7</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">8</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">9</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">10</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">11</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">12</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">13</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">14</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">15</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">16</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">17</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">18</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">19</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">20</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">21</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">22</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">23</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">24</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">25</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">26</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">27</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">28</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">29</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <a class="hover:text-label-3 dark:hover:text-dark-label-3 group flex h-8 w-8 cursor-pointer items-center justify-center hover:bg-fill-3 dark:hover:bg-dark-fill-3 rounded-full" href="/problems/score-of-a-string/?envType=daily-question&amp;envId=2024-06-01" target="_blank" data-state="closed"><span class="">30</span><span class="hidden text-brand-orange dark:text-dark-brand-orange"></span><span class="hidden absolute bottom-[3px] h-1 w-1 rounded-full bg-red-s dark:bg-dark-red-s"></span></a>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="weekly_premium">
+                <div class="parent">
+                    <div class="premium_content">
+                        <h3>Weekly Premium</h3>
+                    </div>
+                    <svg class="question" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" class="ml-1" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:r27:" data-state="closed">
+                    <path fill-rule="evenodd" d="M10.944 9.835a1 1 0 11-1.887-.663 3.25 3.25 0 016.316 1.082c0 1.06-.618 1.884-1.57 2.52a5.915 5.915 0 01-1.364.678 1 1 0 11-.633-1.897c.205-.068.552-.222.887-.446.454-.302.68-.604.68-.857a1.25 1.25 0 00-2.43-.417zM11.186 16a1 1 0 112 0v.135a1 1 0 11-2 0V16zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16z" clip-rule="evenodd"></path>
+                    </svg>
+                    <div class="days_left">
+                        <p>6 days left</p>
+                    </div>
+                </div>
+            </div>
+            <div class="weekly_problems">
+                <div class="font-typo relative mb-0.5 text-xs text-brand-orange dark:text-dark-brand-orange bg-brand-orange dark:bg-dark-brand-orange text-white dark:text-dark-white align-center flex h-[24px] w-[24px] justify-center rounded-full pt-1 text-center">W2</div>
+                <div class="font-typo relative mb-0.5 text-xs text-brand-orange dark:text-dark-brand-orange bg-brand-orange dark:bg-dark-brand-orange text-white dark:text-dark-white align-center flex h-[24px] w-[24px] justify-center rounded-full pt-1 text-center">W3</div>
+                <div class="font-typo relative mb-0.5 text-xs text-brand-orange dark:text-dark-brand-orange bg-brand-orange dark:bg-dark-brand-orange text-white dark:text-dark-white align-center flex h-[24px] w-[24px] justify-center rounded-full pt-1 text-center">W4</div>
+                <div class="font-typo relative mb-0.5 text-xs text-brand-orange dark:text-dark-brand-orange bg-brand-orange dark:bg-dark-brand-orange text-white dark:text-dark-white align-center flex h-[24px] w-[24px] justify-center rounded-full pt-1 text-center">W5</div>
+                <div class="font-typo relative mb-0.5 text-xs text-brand-orange dark:text-dark-brand-orange bg-brand-orange dark:bg-dark-brand-orange text-white dark:text-dark-white align-center flex h-[24px] w-[24px] justify-center rounded-full pt-1 text-center">W6</div>
+            </div>
+        </div>
+            <div class="upper_image">
+                <img src="https://assets.leetcode.com/users/images/49479bba-73b3-45d2-9272-99e773d784b2_1687290663.3168745.jpeg" class="object-cover md:h-full md:w-full h-[100px] w-[200px]" alt>
+            <img src="https://assets.leetcode.com/users/images/770789b0-c96b-4663-86d1-baab25534864_1669795265.8012726.png" class="object-cover md:h-full md:w-full h-[100px] w-[200px]" alt>
+            <img src="https://assets.leetcode.com/users/images/b0a08a5c-c575-48f6-9110-b6ae4e011e98_1655746322.579097.png" class="object-cover md:h-full md:w-full h-[100px] w-[200px]" alt>
+            </div>
+                <div class="study">
+                    <p>Study Plan</p>
+                    <div class="gridi">
+                        <div class="big">
+                            <div class="images">
+                                <img alt="Top Interview 150" src="https://assets.leetcode.com/study_plan_v2/top-interview-150/cover" class="rounded-[4px] mr-3.5 h-[72px] w-[72px]">
+                            </div>
+                            <div class="heading">
+                               <h5>Top Interview 150</h5>
+                            </div>
+                            <div class="upper_content">
+                                <h6>Must-do List for Interview Prep</h6>
+                            </div>
+                        </div>
+                        <div class="big">
+                            <div class="images">
+                                <img alt="LeetCode 75" src="https://assets.leetcode.com/study_plan_v2/leetcode-75/cover" class="rounded-[4px] mr-3.5 h-[72px] w-[72px]">
+                            </div>
+                            <div class="heading">
+                               <h5>LeetCode 75</h5> 
+                            </div>
+                            <div class="upper_content">
+                                <h6>Ace Coding Interview with 75 Qs</h6>
+                            </div>
+                        </div>
+                        <div class="big">
+                            <div class="images">
+                                <img alt="SQL 50" src="https://assets.leetcode.com/study_plan_v2/top-sql-50/cover" class="rounded-[4px] mr-3.5 h-[72px] w-[72px]">
+                            </div>
+                            <div class="heading">
+                                <h5>SQL 50</h5>
+                            </div>
+                            <div class="upper_content">
+                                <h6>Crack SQL Interview in 50 Qs</h6>
+                            </div>
+                        </div>
+                        <div class="big">
+                            <div class="images">
+                                <img alt="Introduction to Pandas" src="https://assets.leetcode.com/study_plan_v2/introduction-to-pandas/cover" class="rounded-[4px] mr-3.5 h-[72px] w-[72px]">
+                            </div>
+                            <div class="heading">
+                                <h5>Introduction to Pandas</h5>
+                            </div>
+                            <div class="upper_content">
+                                <h6>Learn Basic Pandas in 15 Qs</h6>
+                            </div>
+                        </div>
+                        <div class="big">
+                            <div class="images">
+                                <img alt="30 Days of JavaScript" src="https://assets.leetcode.com/study_plan_v2/30-days-of-javascript/cover" class="rounded-[4px] mr-3.5 h-[72px] w-[72px]">
+                            </div>
+                            <div class="heading">
+                                <h5>30 Days of JavaScript</h5>
+                            </div>
+                            <div class="upper_content">
+                                <h6>Learn JS Basics with 30 Qs</h6>
+                            </div>
+                        </div>
+                        <div class="big">
+                            <div class="images">
+                                <img alt="Amazon Spring '23 High Frequency" src="https://assets.leetcode.com/study_plan_v2/amazon-spring-23-high-frequency/cover" class="rounded-[4px] mr-3.5 h-[72px] w-[72px]">
+                            </div>
+                            <div class="heading">
+                                <h5>Amazon Spring '23 High Frequency</h5>
+                            </div>
+                            <div class="upper_content">
+                                <h6 style='cursor: pointer;' title='Amazon Spring 23 High Frequency'>Practice Amazon 25 Recently...</h6>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="tags">
+                <div class="topic" id="a">
+                    <p>Array</p>
+                    <p>3456</p>
+                </div>
+                <div class="topic" id="a">
+                    <p>String</p>
+                    <p>7890</p>
+                </div>
+                <div class="topic" id="a">
+                    <p>Sliding Window</p>
+                    <p>1234</p>
+                </div>
+                <div class="topic" id="a">
+                    <p>Dynamic Programming</p>
+                    <p>5678</p>
+                </div>
+                <div class="topic" id="a">
+                    <p>Greedy Algorithm</p>
+                    <p>9101</p>
+                </div>
+                <div class="topic" id="a">
+                    <p>Graph</p>
+                    <p>1121</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Two Pointers</p>
+                    <p>3141</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Tree</p>
+                    <p>5161</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Recursion</p>
+                    <p>7181</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Math</p>
+                    <p>9202</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Two Pointers</p>
+                    <p>3141</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Tree</p>
+                    <p>5161</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Recursion</p>
+                    <p>7181</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Math</p>
+                    <p>9202</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Two Pointers</p>
+                    <p>3141</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Tree</p>
+                    <p>5161</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Recursion</p>
+                    <p>7181</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Math</p>
+                    <p>9202</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Two Pointers</p>
+                    <p>3141</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Tree</p>
+                    <p>5161</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Recursion</p>
+                    <p>7181</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Math</p>
+                    <p>9202</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Two Pointers</p>
+                    <p>3141</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Tree</p>
+                    <p>5161</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Recursion</p>
+                    <p>7181</p>
+                </div>
+                <div class="topic" id="b">
+                    <p>Math</p>
+                    <p>9202</p>
+                </div>
+            </div>
+            <button onclick="get()" id="but">Expand</button>
+            <button onclick='back()' id="revert">Collapse</button>
+            <div class="topic_tags">
+                <a href='#'>
+                    <div class='bucket_topics'>
+                        <h4>All Topics</h4>
+                    </div>
+                </a>
+                <a href='#'>
+                    <div class='bucket_topics'>
+                        <h4>Algorithms</h4>
+                    </div>
+                </a>
+                <a href='#'>
+                    <div class='bucket_topics'>
+                        <h4>Pandas</h4>
+                    </div>
+                </a>
+                <a href='#'>
+                    <div class='bucket_topics'>
+                        <h4>Concurrency</h4>
+                    </div>
+                </a>
+                <a href='#'>
+                    <div class='bucket_topics'>
+                        <h4>Database</h4>
+                    </div>
+                </a>
+                <a href='#'>
+                    <div class='bucket_topics'>
+                        <h4>Shell</h4>
+                    </div>
+                </a>
+                <a href='#'>
+                    <div class='bucket_topics'>
+                        <h4>Javascript</h4>
+                    </div>
+                </a>
+            </a>
+            </div>
+            <div class="main">
+                <div class="upper">
+                    <div class="list">
+                        <button onclick='list()' id="list">
+                            Lists
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4.5 h-4.5 ml-3 pointer-events-none transition duration-300 text-label-3 dark:text-dark-label-3" aria-hidden="true" style="position: relative;left: 75px;bottom:15px;display:block" id='list_down'><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                    <div class="difficulty">
+                        <button onclick='diff()' id="difficulty">Difficulty
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4.5 h-4.5 ml-3 pointer-events-none transition duration-300 text-label-3 dark:text-dark-label-3" aria-hidden="true" style="position: relative;left: 75px;bottom:15px; display:block" id='difficulty_down'><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                    <div class="status">
+                        <button onclick='sts()' id="status">status
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4.5 h-4.5 ml-3 pointer-events-none transition duration-300 text-label-3 dark:text-dark-label-3" aria-hidden="true" style="position: relative;left: 75px;bottom:15px; display:block" id='status_down'>
+                                <path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg></button>
+                    </div>
+                    <div class="tags_tag">
+                        
+                        <button onclick='tags()' id="tags_tag">tags
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4.5 h-4.5 ml-3 pointer-events-none transition duration-300 text-label-3 dark:text-dark-label-3" aria-hidden="true" style="position: relative;left: 75px;bottom:15px; display:block" id='tags_down'><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                    <div class="input_div">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4 h-4">
+                            <path fill-rule="evenodd" d="M5.527 5.527a7.5 7.5 0 0111.268 9.852l3.581 3.583a1 1 0 01-1.414 1.415l-3.582-3.583A7.501 7.501 0 015.527 5.527zm1.414 1.414a5.5 5.5 0 107.779 7.779A5.5 5.5 0 006.94 6.94z" clip-rule="evenodd"></path></svg>
+                        <input id="input" placeholder='Search Questions'>
+                        </input>
+                    </div>
+                    <div class='settings'>
+                        <button  id="settings">
+                                                    
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="pointer-events-none h-5 w-5" aria-hidden="true"><path fill-rule="evenodd" d="M7.174 5.619a8.064 8.064 0 011.635-.946l.29-1.158A2 2 0 0111.039 2h1.922a2 2 0 011.94 1.515l.29 1.158c.584.252 1.132.57 1.635.946l1.15-.329a2 2 0 012.282.923l.961 1.665a2 2 0 01-.342 2.437l-.86.832a8.151 8.151 0 010 1.888l.86.83a2 2 0 01.342 2.438l-.96 1.665a2 2 0 01-2.283.923l-1.15-.329a8.063 8.063 0 01-1.635.946l-.29 1.158a2 2 0 01-1.94 1.515H11.04a2 2 0 01-1.94-1.515l-.29-1.158a8.064 8.064 0 01-1.635-.946l-1.15.329a2 2 0 01-2.282-.923l-.961-1.665a2 2 0 01.342-2.437l.86-.831a8.158 8.158 0 010-1.889l-.86-.83a2 2 0 01-.342-2.438l.96-1.665a2 2 0 012.283-.923l1.15.329zm-1.7 1.594l-.961 1.665 1.57 1.518-.114.982a6.157 6.157 0 000 1.425l.114.982-1.57 1.518.96 1.665 2.104-.601.794.593c.38.284.793.523 1.23.711l.908.392.53 2.118h1.922l.53-2.118.909-.392a6.07 6.07 0 001.23-.711l.793-.593 2.103.601.961-1.665-1.57-1.518.114-.982a6.172 6.172 0 000-1.425l-.114-.982 1.57-1.518-.96-1.665-2.104.601-.794-.593a6.067 6.067 0 00-1.23-.71l-.908-.392L12.96 4H11.04l-.53 2.119-.909.391a6.064 6.064 0 00-1.23.711l-.793.593-2.103-.601zM12 16a4 4 0 100-8 4 4 0 000 8zm0-2a2 2 0 110-4 2 2 0 010 4z" clip-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                    <div onclick="pick()" class="pick_one">
+                        <span>Pick One</span>
+                    </div>
+                </div>
+                    <div class="question_columns">
+                        <div id="question_status"><h5>Status</h5></div>
+                        <div id="question_title"><h5>Title</h5></div>
+                        <div id="question_solution"> <h5>Solution</h5></div>
+                        <div id="question_acceptance"><h5>Acceptance</h5></div>
+                        <div id="question_difficulty"><h5>Difficulty</h5></div>
+                        <div id="question_frequency"><h5>Frequency</h5></div>
+                    </div>
+            </div>
+            <script>
+                function pick(){
+
+                }
+                            function activateAction(elementId) {
+                                var element = document.getElementById(elementId);
+                                var currentRotation = window.getComputedStyle(element).getPropertyValue('transform');
+                                var newRotation = currentRotation === 'none'? 'rotate(180deg)' : 'none';
+                                element.style.transform = newRotation;
+                                element.style.transition="transform 0.4s"
+                                activeActionId = elementId; // Remember the currently active action
+                            }
+
+                            function handleClickOutside(event) {
+                                if (activeActionId!== null) {
+                                    var element = document.getElementById(activeActionId);
+                                    element.style.transform = 'none';
+                                    activeActionId = null; // Reset the active action
+                                }
+                            }
+
+                            document.addEventListener('mousedown', handleClickOutside);
+
+                            // Example usage of the activateAction function
+                            function tags() {
+                                activateAction("tags_down");
+                            }
+
+                            function sts() {
+                                activateAction("status_down");
+                            }
+
+                            function diff() {
+                                activateAction("difficulty_down");
+                            }
+
+                            function list() {
+                                activateAction("list_down");
+                            }
+
+                function get(){
+                    var topics = document.querySelectorAll('.topic#b'); 
+                        topics.forEach((topic)=> {
+                            topic.style.display = "flex";
+                        });
+                        button=document.getElementById("but");
+                        button.style.display="none";
+                        button1=document.getElementById("revert");
+                        button1.style.display="block";
+                    }
+                function back(){
+                    var topics = document.querySelectorAll('.topic#b');
+                    topics.forEach((topic)=> {
+                            topic.style.display = "none";
+                        });
+                        button=document.getElementById("revert");
+                        button.style.display="none";
+                        button1=document.getElementById("but");
+                        button1.style.display="block";
+                }
+            </script>
+    </body>
+</html>

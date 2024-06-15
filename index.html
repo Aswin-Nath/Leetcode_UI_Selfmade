@@ -475,8 +475,9 @@
             .tags_tag{
                 width: 100px;
             }
-            .list{
+            .list,.difficulty,.status,.tags_tag{
                 width: 100px;
+                height: 40px;
             }
             button#difficulty{
                 position: relative;
@@ -527,7 +528,7 @@
                 position: relative;
                 left: 130px;
                 width: 930px;
-                bottom: 340px;
+                bottom: 300px;
                 display: flex;
                 gap: 40px;
             }
@@ -559,7 +560,7 @@
                 flex-direction: column;
                 row-gap: 9px;
                 position: relative;
-                bottom: 330px;
+                bottom: 300px;
                 left: 125px;
                 width: 920px;
                 height: 938px;
@@ -618,35 +619,67 @@
                 left: 354px;
             }
             .difficulty_drop{
-                border-radius: 20px;
-                background-color: red;
+                text-align: center;
+                border-radius: 8px;
+                border: 2px solid black;
+                background-color: white;
                 display: none;
                 flex-direction: column;
                 gap: 8px;
+            }
+            .difficulty_drop span{
+                width: 80px;
+            }
+            .list_drop span{
+                width: 180px;
+            }
+            .difficulty_drop span:hover{
+                cursor: pointer;
+                border-radius: 8px;                
+                background-color: lightgray;
             }
             .list_drop{
-                border-radius: 20px;
-                position: relative;
+                text-align: center;
+                border-radius: 7px;
+                position: absolute;
+                border: 2px solid #000;
                 width: 200px;
-                background-color: red;
                 display: none;
                 flex-direction: column;
                 gap: 8px;
+            }
+            .list_drop span:hover{
+                border-radius: 8px;                
+                background-color: lightgray;
+                cursor: pointer;
             }
             .status_drop{
-                border-radius: 20px;
-                width: 103px;
-                background-color: red;
+                text-align: center;
+                border-radius: 7px;
+                width: 120px;
+                background-color: white;
+                border: 1px solid #000;
                 display: none;
                 flex-direction: column;
                 gap: 8px;
             }
+            .status_drop span{
+                width: 100px;
+            }
+            .status_drop span:hover{
+                cursor: pointer;
+                border-radius: 8px;                
+                background-color: lightgray;
+            }
             .tags_drop{
+                position: absolute;
                 height: 300px;
                 border-radius: 20px;
-                width: 283px;
+                width: 460px;
                 display: none;
                 border: 4px solid black;
+                z-index: 1; 
+                background-color: white;
             }
             .tag_input{
                 border: 2px solid black;
@@ -654,23 +687,47 @@
                 left: 14px;
                 top: 10px;
                 border-radius: 10px;
-                width: 250px;
+                height: 30px;
+                width: 400px;
             }
             .two{
-
                 text-align: center;
-                height: 50px;
+                height: 30px;
                 position: relative;
-                top: 20px;
-                right: 230px;
+                top: 50px;
+                right: 150px;
                 width: 300px;
                 display: flex;
                 gap: 25px;
             }
-            .taggie{
-                height: 70px;
-                width: 300px;
+            .two h4{
+                position: relative;
+                height: 20px;
+                margin: 0px;
             }
+            .tag_contents{
+                display: grid;
+                grid-template-columns: repeat(5,75px);
+                column-gap:18px;
+                position: relative;
+                right: 302px;
+                top: 90px;    
+                border-radius: 9px;
+                width: 455px;
+                height: 226px;
+            }
+            .tag_drop_contents{
+                text-align: center;
+                height: 45px;
+            }
+            .tag_drop_contents h6{
+                margin: 0px 0px 0px 0px;
+                position: relative;
+                top: 10px;
+                border-radius: 7px;
+                border: 2px solid black;
+            }
+            
         </style>
     </head>
     <body>
@@ -1002,6 +1059,7 @@
             </div>
             <div class="main">
                 <div class="upper">
+
                     <div class="list">
                         <button onclick='list()' id="list">
                             Lists
@@ -1014,6 +1072,7 @@
                             <span>Top Interview Questions</span>
                         </div>
                     </div>
+
                     <div class="difficulty">
                         <button onclick='diff()' id="difficulty">Difficulty
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4.5 h-4.5 ml-3 pointer-events-none transition duration-300 text-label-3 dark:text-dark-label-3" aria-hidden="true" style="position: relative;left: 75px;bottom:15px; display:block" id='difficulty_down'><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg>
@@ -1024,6 +1083,7 @@
                             <span id="hard">Hard</span>
                         </div>
                     </div>
+
                     <div class="status">
                         <button onclick='sts()' id="status">status
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4.5 h-4.5 ml-3 pointer-events-none transition duration-300 text-label-3 dark:text-dark-label-3" aria-hidden="true" style="position: relative;left: 75px;bottom:15px; display:block" id='status_down'>
@@ -1034,18 +1094,80 @@
                                     <span>SOLVED</span>
                                 </div>
                     </div>
+
                     <div class="tags_tag">
+
                         <button onclick='tags()'  id="tags_tag">tags
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="w-4.5 h-4.5 ml-3 pointer-events-none transition duration-300 text-label-3 dark:text-dark-label-3" aria-hidden="true" style="position: relative;left: 75px;bottom:15px; display:block" id='tags_down'><path fill-rule="evenodd" d="M4.929 7.913l7.078 7.057 7.064-7.057a1 1 0 111.414 1.414l-7.77 7.764a1 1 0 01-1.415 0L3.515 9.328a1 1 0 011.414-1.414z" clip-rule="evenodd"></path></svg>
                         </button>
                         <div class="tags_drop">
-                            <div class='taggie'>
+
                                 <input class="tag_input">
-                            </div>
-                            <div class="two">
-                                <h4>Topic</h4>
-                                <h4>Companies</h4>
-                            </div>
+
+                                <div class="two">
+                                    <h4>Topic</h4>
+                                    <h4>Companies</h4>
+                                </div>
+                                
+                                <div class="tag_contents">
+                                    
+                                    <div class="tag_drop_contents" id="a">
+                                        <h6>Linked Lists</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="a">
+                                        <h6>Stacks</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="a">
+                                        <h6>Queues</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="a">
+                                        <h6>Hash Tables</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="a">
+                                        <h6>Trees</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Graphs</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Heaps</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Binary Search Trees</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Binary Heaps</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Greedy Algorithms</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Dynamic Programming</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Backtracking</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Divide and Conquer</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Sorting and Searching</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Recursion</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Bit Manipulation</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>String Matching</h6>
+                                    </div>
+                                    <div class="tag_drop_contents" id="b">
+                                        <h6>Sliding Window</h6>
+                                    </div>
+                                    
+                                </div>
+                            
                         </div>
                     </div>
                     <div class="input_div">

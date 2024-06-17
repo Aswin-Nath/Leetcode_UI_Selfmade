@@ -720,12 +720,29 @@
                 text-align: center;
                 height: 45px;
             }
+            .tag_drop_contents h6:hover{
+                background-color: lightgray;
+            }
             .tag_drop_contents h6{
                 margin: 0px 0px 0px 0px;
                 position: relative;
                 top: 10px;
                 border-radius: 7px;
                 border: 2px solid black;
+            }
+            .paste_here{
+                position: relative;
+                bottom: 380px;
+                width:920px;
+                left: 130px;
+                background-color: red;
+                display: flex;
+                gap: 30px;
+            }
+            .paste_here h5{
+                background-color: yellow;
+                position: relative;
+                left: 30px;
             }
             
         </style>
@@ -1186,7 +1203,12 @@
                         <span>Pick One</span>
                     </div>
                 </div>
-                    <div class="paste_here"></div>
+                    <div class="paste_here">
+                        <!-- <h5>nrrkegbektbkgetgek</h5>
+                        <h5>MEDIUM</h5>
+                        <h5>ATTEMPTED</h5>
+                        <h5>Divide and Conquer</h5> -->
+                    </div>
                     <div class="question_columns">
                         <div id="question_status"><h5>Status</h5></div>
                         <div id="question_title"><h5>Title</h5></div>
@@ -1200,7 +1222,15 @@
                     </div>
             </div>
             <script>
-                                        const svgContent = `
+                    const difficulty_drop=document.querySelectorAll(".difficulty_drop span");
+                    const status_drop=document.querySelectorAll(".status_drop span");
+                    const tags_contents=document.querySelectorAll(".tag_contents span");
+
+                    const listDropSpans = document.querySelectorAll(".list_drop span");
+
+                   
+
+                    const svgContent = `
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" class="h-[18px] w-[18px] cursor-pointer text-green-s dark:text-dark-green-s">
                             <path fill-rule="evenodd" d="M20 12.005v-.828a1 1 0 112 0v.829a10 10 0 11-5.93-9.14 1 1 0 01-.814 1.826A8 8 0 1020 12.005zM8.593 10.852a1 1 0 011.414 0L12 12.844l8.293-8.3a1 1 0 011.415 1.413l-9 9.009a1 1 0 01-1.415 0l-2.7-2.7a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
@@ -1279,25 +1309,55 @@
                             
 
 
+                            let activeActionId = null; // Ensure activeActionId is declared in a scope accessible to this function
+
                             function handleClickOutside(event) {
-                                if (activeActionId!== null) {
-                                    var element = document.getElementById(activeActionId);
-                                    var activeActionIdParts = activeActionId.split("_"); 
-                                    var baseClassName = "."+activeActionIdParts[0] + "_drop"; 
+                                        // Corrected logical AND operator and strict equality checks
+                                        if (activeActionId!== null) {
+                                            var element = document.getElementById(activeActionId);
+                                            if (!element) return; // Check if the element exists
+                                            
+                                            var activeActionIdParts = activeActionId.split("_"); 
+                                            var baseClassName = "." + activeActionIdParts[0] + "_drop"; 
 
-                                    var ele = document.querySelector(baseClassName);
-                                    var cur=ele.style.display;
-                                    
-                                        ele.style.display="none"
-                                    
+                                            var ele = document.querySelector(baseClassName);
+                                            if (!ele) return; // Check if the element exists
 
-                                    element.style.transform = 'none';
-                                    activeActionId = null; // Reset the active action
-                                }
-                            }
-                            function diff_show(){
+                                            var cur = ele.style.display;
 
-                            }
+                                            // Check if the clicked target is a SPAN element
+                                            if (event.target.tagName === "SPAN" || event.target.tagName==="H6") {
+                                                var spanContent = event.target.textContent || event.target.innerText;
+                                                var pasteHereElement = document.querySelector(".paste_here");
+
+                                                // Check if the.paste_here element exists
+                                                if (pasteHereElement) {
+                                                    // Get the existing content of the.paste_here element
+                                                    var existingContent = pasteHereElement.innerHTML;
+
+                                                    // Append the new content to the existing content
+                                                    var newContent = `
+                                                        <h5>${spanContent}</h5>
+                                                    `;
+
+                                                    // Combine the existing and new content
+                                                    pasteHereElement.innerHTML = existingContent + newContent;
+                                                }
+                                            } 
+                                                // Hide the element
+                                                ele.style.display = "none";
+                                                // Reset the transform property - assuming you want to remove it completely
+                                                element.style.transform = "";
+                                            
+
+                                            activeActionId = null; // Reset the active action
+                                        }
+                                    }
+
+
+                           
+
+
                             document.addEventListener('mousedown', handleClickOutside);
 
                             // Example usage of the activateAction function
@@ -1310,7 +1370,6 @@
                             }
 
                             function diff() {
-                                diff_show();
                                 activateAction("difficulty_down",".difficulty_drop");
                             }
 
@@ -1341,4 +1400,4 @@
                             }
             </script>
     </body>
-</html>
+</html>             
